@@ -1,18 +1,13 @@
-// import { uuid } from 'uuidv4';
 import Usuario from '../models/usuario';
 
 class UsuarioController {
   async store(req, res) {
     const { nome, email, senha, admin } = req.body;
-    // const id = uuid();
-    // const val = admin !== null;
     const usuario = await Usuario.create({
       nome,
       email,
       senha,
-      // id,
       admin,
-      // : val,
     });
     res.json(usuario);
   }

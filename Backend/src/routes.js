@@ -1,5 +1,6 @@
 import { Router } from 'express';
-import UC from './backend/app/controller/usuarioController';
+import UC from './app/controller/usuarioController';
+import LC from './app/controller/livroController';
 
 const routes = new Router();
 
@@ -11,5 +12,6 @@ routes.get('/buscaID', UC.getID);
 
 routes.post('/createUsuario', UC.store);
 routes.post('/createAdmin', UC.store);
+routes.post('/createLivro', LC.store);
 
 export default routes;

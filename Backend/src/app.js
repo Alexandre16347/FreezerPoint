@@ -1,6 +1,6 @@
 import express from 'express';
 // eslint-disable-next-line no-unused-vars
-import database from './backend/database';
+import database from './database';
 import routes from './routes';
 import cors from 'cors';
 

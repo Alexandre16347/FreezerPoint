@@ -1,8 +1,6 @@
-// const { password } = require('../../config/database');
-
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('usuarios', {
+    await queryInterface.createTable('livros', {
       id: {
         type: Sequelize.INTEGER,
         allowNull: false,
@@ -13,18 +11,24 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      email: {
-        type: Sequelize.STRING,
-        allowNull: false,
-        unique: true,
-      },
-      senha: {
+      autor: {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      admin: {
-        type: Sequelize.BOOLEAN,
-        defaultValue: false,
+      categoria: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
+      genero: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
+      edicao: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
+      sinopse: {
+        type: Sequelize.STRING,
         allowNull: false,
       },
       created_at: {
@@ -39,6 +43,6 @@ module.exports = {
   },
 
   down: async (queryInterface) => {
-    await queryInterface.dropTable('usuarios');
+    await queryInterface.dropTable('livros');
   },
 };

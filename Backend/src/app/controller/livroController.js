@@ -1,8 +1,6 @@
-// import { uuid } from 'uuidv4';
-// import livros from '../../database/livros';
 import Livro from '../models/livro';
 
-class livroController {
+class LivroController {
   async store(req, res) {
     const { nome, autor, edicao, sinopse, genero, categoria } = req.body;
     const livro = await Livro.create({
@@ -17,4 +15,4 @@ class livroController {
   }
 }
 
-export default livroController;
+export default new LivroController();
