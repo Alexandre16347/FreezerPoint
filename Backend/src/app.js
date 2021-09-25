@@ -2,6 +2,7 @@ import express from 'express';
 // eslint-disable-next-line no-unused-vars
 import database from './backend/database';
 import routes from './routes';
+import cors from 'cors';
 
 class App {
   constructor() {
@@ -12,6 +13,7 @@ class App {
 
   middlewares() {
     this.server.use(express.json());
+    this.server.use(cors());
   }
 
   routes() {
