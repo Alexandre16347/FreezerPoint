@@ -6,8 +6,8 @@ class Usuario extends Model {
       {
         nome: Sequelize.STRING,
         email: Sequelize.STRING,
-        senha: Sequelize.VIRTUAL,
-        senha_hash: Sequelize.STRING,
+        senha: Sequelize.STRING,
+        //senha_hash: Sequelize.VIRTUAL,
         // id: Sequelize.INTEGER,
         admin: Sequelize.BOOLEAN,
       },
