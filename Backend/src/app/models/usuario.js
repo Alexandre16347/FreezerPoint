@@ -1,5 +1,5 @@
 import Sequelize, { Model } from 'sequelize';
-import bcrypt from 'bcryptjs';
+// import bcrypt from 'bcryptjs';
 
 class Usuario extends Model {
   static init(sequelize) {
@@ -7,8 +7,8 @@ class Usuario extends Model {
       {
         nome: Sequelize.STRING,
         email: Sequelize.STRING,
-        senha: Sequelize.VIRTUAL,
-        senha_hash: Sequelize.STRING,
+        senha: Sequelize.STRING,
+        // senha_hash: Sequelize.STRING,
         // id: Sequelize.INTEGER,
         admin: Sequelize.BOOLEAN,
       },
@@ -16,17 +16,17 @@ class Usuario extends Model {
         sequelize,
       },
     );
-    this.addHook('beforeSave', async (usuario) => {
-      if (usuario.senha) {
-        usuario.senha_hash = await bcrypt.hash(usuario.senha, 6);
-      }
-    });
-    return this;
+    // this.addHook('beforeSave', async (usuario) => {
+    //   if (usuario.senha) {
+    //     usuario.senha_hash = await bcrypt.hash(usuario.senha, 6);
+    //   }
+    // });
+    // return this;
   }
 
-  checkSenha(senha) {
-    return bcrypt.compare(senha, this.senha_hash);
-  }
+  // checkSenha(senha) {
+  //   return bcrypt.compare(senha, this.senha_hash);
+  // }
 }
 
 export default Usuario;

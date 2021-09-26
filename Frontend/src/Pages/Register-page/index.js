@@ -11,6 +11,7 @@ function Register() {
   const submeterFormulario = async (data) => {
     console.log(data);
 
+    //Valida dos campos do formulário
     try {
       const esquema = Yup.object().shape({
         nome: Yup.string().required("Você precisa digitar um nome"),
@@ -22,6 +23,14 @@ function Register() {
           .required("Você precisa digitar uma senha"),
       });
       await esquema.validate(data, { abortEarly: false });
+
+      //Faz a requisição da api e grava no banco de dados
+      const reponse = await api.post("createUsuario", {
+        nome: data.nome,
+        email: data.email,
+        senha: data.senha,
+      });
+      console.log(reponse.data);
     } catch (error) {
       if (error instanceof Yup.ValidationError) {
         const erros = {};
@@ -32,13 +41,6 @@ function Register() {
         formularioReferencia.current?.setErrors(erros);
       }
     }
-
-    const reponse = await api.post("createUsuario", {
-      nome: data.nome,
-      email: data.email,
-      senha: data.senha,
-    });
-    console.log(reponse.data);
   };
   return (
     <Container>
