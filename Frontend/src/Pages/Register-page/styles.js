@@ -79,6 +79,26 @@ export const ContentForm = styled.div`
       padding: 0 10px;
     }
 
+    .loginButton {
+      font-family: "Nunito", sans-serif;
+      border-radius: 5rem;
+      border-color: #9ba0fc;
+      outline: none;
+      box-shadow: 0px 4px 3px rgba(0, 0, 0, 0.25);
+      background: #9ba0fc;
+      color: white;
+      padding: 0.6rem;
+      transition: background 0.2s;
+      display: flex;
+      justify-content: center;
+      margin-top: 0.5rem;
+    }
+
+    .loginButton:hover{
+      background: ${shade(0.1, "#9ba0fc")};
+    }
+    }
+
     .sign-button {
       font-family: "Nunito", sans-serif;
       border-radius: 5rem;

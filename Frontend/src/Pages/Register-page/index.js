@@ -48,7 +48,7 @@ function Register() {
         <img src={logo} alt="icon" />
       </Logo>
       <ContentForm>
-        <h1 className="title">Bem vindo de volta!</h1>
+        <h1 className="title">Bem vindo!</h1>
         <Form ref={formularioReferencia} onSubmit={submeterFormulario}>
           <p>Preencha seus dados para cadastrar</p>
           <h2>Nome</h2>
@@ -58,6 +58,10 @@ function Register() {
           <h2>Senha</h2>
           <Input name="senha" type="password" placeholder="Senha" />
           <button type="submit"> Cadastre-se </button>
+          <a className="loginButton" href="#">
+            {" "}
+            Já possuo uma conta
+          </a>
         </Form>
       </ContentForm>
       <Image></Image>

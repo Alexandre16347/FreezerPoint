@@ -27,7 +27,7 @@ class Usuario extends Model {
   }
 
   checkSenha(senha) {
-    return bcrypt.compare(senha, this.senha_hash);
+    return bcrypt.compare(senha, this.senha);
   }
 }
 
