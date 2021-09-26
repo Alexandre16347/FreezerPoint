@@ -31,7 +31,7 @@ function Home() {
 
         <ul class="menu">
           <li>
-            <a href="#"> Home</a>
+            <a href="#"> Home</a>yarn
           </li>
           <li>
             <a href="#"> Cadastrar</a>

@@ -4,11 +4,35 @@ import { Form } from "@unform/web";
 import logo from "../../Assets/logo.svg";
 import Input from "../../components/input";
 import api from "../../services/api";
+import * as Yup from "yup";
 
 function Register() {
   const formularioReferencia = useRef(null);
   const submeterFormulario = async (data) => {
     console.log(data);
+
+    try {
+      const esquema = Yup.object().shape({
+        nome: Yup.string().required("Você precisa digitar um nome"),
+        email: Yup.string()
+          .email("Email inválido")
+          .required("Você precisa digitar um email"),
+        senha: Yup.string()
+          .min(6, "A senha precisa ter no mínimo 6 caracteres")
+          .required("Você precisa digitar uma senha"),
+      });
+      await esquema.validate(data, { abortEarly: false });
+    } catch (error) {
+      if (error instanceof Yup.ValidationError) {
+        const erros = {};
+        error.inner.forEach((e) => {
+          erros[e.path] = e.message;
+        });
+        console.log(erros);
+        formularioReferencia.current?.setErrors(erros);
+      }
+    }
+
     const reponse = await api.post("createUsuario", {
       nome: data.nome,
       email: data.email,
@@ -30,12 +54,7 @@ function Register() {
           <h2>Email</h2>
           <Input name="email" type="text" placeholder="exemplo@gmail.com" />
           <h2>Senha</h2>
-          <Input
-            name="senha"
-            type="password"
-            placeholder="Senha"
-            color="#9BA0FC"
-          />
+          <Input name="senha" type="password" placeholder="Senha" />
           <button type="submit"> Cadastre-se </button>
         </Form>
       </ContentForm>

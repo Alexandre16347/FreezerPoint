@@ -4,6 +4,7 @@ import logo from "../../Assets/logo.svg";
 import { Form } from "@unform/web";
 import Input from "../../components/input";
 import api from "../../services/api";
+import Home from "../Home-page";
 
 function RegisterBook() {
   const formularioReferencia = useRef(null);
@@ -22,6 +23,7 @@ function RegisterBook() {
   return (
     <Page>
       <div className="logo">
+        <a href={Home}> voltar</a>
         <img src={logo} alt="logo" />
       </div>
 
