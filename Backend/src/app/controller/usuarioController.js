@@ -2,14 +2,9 @@ import Usuario from '../models/usuario';
 
 class UsuarioController {
   async store(req, res) {
-    const { nome, email, senha, admin } = req.body;
-    const usuario = await Usuario.create({
-      nome,
-      email,
-      senha,
-      admin,
-    });
-    res.json(usuario);
+    const { nome, email, senha, admin } = await Usuario.create(req.body);
+    console.log({ nome, email, senha, admin });
+    return res.json({ nome, email, senha, admin });
   }
 
   async get(req, res, next) {
