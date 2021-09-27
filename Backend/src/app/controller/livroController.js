@@ -13,6 +13,12 @@ class LivroController {
     });
     res.json(livro);
   }
+
+  async get(req, res, next) {
+    Livro.findAll().then((company) => {
+      res.json(company);
+    });
+  }
 }
 
 export default new LivroController();

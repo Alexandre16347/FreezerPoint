@@ -4,12 +4,13 @@ import logo from "../../Assets/logoPurple.svg";
 import home from "../../Assets/homeImage.svg";
 import book from "../../Assets/item1.svg";
 import icon from "../../Assets/icon.svg";
+import { Link } from "react-router-dom";
 
-function Home() {
+async function Home() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3000/static/shoes.json")
+    fetch("http://localhost:3001/getLivro")
       .then((response) => response.json())
       .then(setData);
   }, []);
@@ -31,10 +32,12 @@ function Home() {
 
         <ul class="menu">
           <li>
-            <a href="#"> Home</a>yarn
+            <Link to="/Home">
+              <a> Home</a>
+            </Link>
           </li>
           <li>
-            <a href="#"> Cadastrar</a>
+            <Link to="/createLivro"> Cadastrar</Link>
           </li>
           <li>
             <a href="#"> Sobre</a>
@@ -89,15 +92,15 @@ function Home() {
         <div className="container">
           <div className="carossel">
             {data.map((item) => {
-              const { id, name, oldPrice, price } = item;
+              const { nome, autor, edicao, sinopse, genero, categoria } = item;
               return (
                 <div className="item">
                   <div className="conteudoItem">
                     <img src={book} className="imageItem" />
                     <div className="info">
-                      <p className="preco"> R$ {price}</p>
-                      <p className="titulo"> {name}</p>
-                      <p className="autor"> Zeca Pagodinho</p>
+                      <p className="preco"> R$ 10,00</p>
+                      <p className="titulo"> {nome}</p>
+                      <p className="autor"> {autor}</p>
                       <div className="botao">
                         <a href="#"> Comprar</a>
                         <img clasname="icon" src={icon} alt="icone fav" />

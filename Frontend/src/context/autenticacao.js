@@ -5,15 +5,19 @@ const ContextoAutenticacao = createContext(null);
 
 export const AutenticacaoProvider = ({ children }) => {
   const login = async ({ email, senha }) => {
-    const response = await api.post("login", {
-      email: email,
-      senha: senha,
-    });
-    console.log("ok");
-    const { token, usuario } = response.data;
+    try {
+      const response = await api.post("login", {
+        email: email,
+        senha: senha,
+      });
+      console.log("ok");
+      const { token, usuario } = response.data;
 
-    localStorage.setItem("@freezerPoint:token", token);
-    localStorage.setItem("@freezerPoint:usuario", JSON.stringify(usuario));
+      localStorage.setItem("@freezerPoint:token", token);
+      localStorage.setItem("@freezerPoint:usuario", JSON.stringify(usuario));
+    } catch (err) {
+      console.log(err.response.data);
+    }
   };
 
   const logoff = () => {
@@ -23,7 +27,7 @@ export const AutenticacaoProvider = ({ children }) => {
 
   return (
     <ContextoAutenticacao.Provider value={{ login, logoff }}>
-      <h1>teste</h1>
+      {/* <h1>teste</h1> */}
       {children}
     </ContextoAutenticacao.Provider>
   );

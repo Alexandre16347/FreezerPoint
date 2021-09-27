@@ -2,16 +2,22 @@ import styled from "styled-components";
 import bookPage from "../../Assets/bookPage.svg";
 import { shade } from "polished";
 
-export const Page = styled.div`
-  .logo{
+export const Header = styled.div`
+  display: flex;
+  align-items: center;
+  .logo {
     margin-left: 2rem;
   }
-`
+  .exitButton {
+    margin-right: 1rem;
+    margin-left: 1rem;
+  }
+`;
 
 export const Container = styled.div`
   display: flex;
   height: 100vh;
-  margin-left: 2rem;  
+  margin-left: 2rem;
 `;
 
 export const ContentForm = styled.div`

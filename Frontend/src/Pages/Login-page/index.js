@@ -1,15 +1,17 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { Container, ContentForm, Image, Logo } from "./styles";
 import { Form } from "@unform/web";
 import logo from "../../Assets/logo.svg";
 import Input from "../../components/input";
 import * as Yup from "yup";
 import { useContextAutenticacao } from "../../context/autenticacao";
-// import { Link, useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 function Register() {
+  const [loginErro, setLoginErro] = useState(" ");
   const formularioReferencia = useRef(null);
   const { login } = useContextAutenticacao();
+  const history = useHistory();
 
   const submeterFormulario = async (data) => {
     console.log(data);
@@ -25,7 +27,8 @@ function Register() {
           .required("Você precisa digitar uma senha"),
       });
       await esquema.validate(data, { abortEarly: false });
-      login(data);
+      await login(data);
+      history.push("/Home");
 
       //Faz a requisição da api e grava no banco de dados
       //ATENÇÃO
@@ -43,6 +46,7 @@ function Register() {
         console.log(erros);
         formularioReferencia.current?.setErrors(erros);
       }
+      setLoginErro("Não foi possível realizar o login");
     }
   };
   return (
@@ -60,14 +64,12 @@ function Register() {
           <h2>Senha</h2>
           <Input name="senha" type="password" placeholder="Senha" />
           <button type="submit"> Login </button>
-          {/* <Link to="/login">
-            Ja possuo uma conta
-            <FiUpload />
-          </Link> */}
-          <a className="loginButton" href="#">
+          {!!loginErro && <h2 className="erro">{loginErro}</h2>}
+
+          <Link className="loginButton" to="/createUsuario">
             {" "}
             não possui uma conta? cadastre-se
-          </a>
+          </Link>
         </Form>
       </ContentForm>
       <Image></Image>

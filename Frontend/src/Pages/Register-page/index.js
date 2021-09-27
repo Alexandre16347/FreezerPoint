@@ -5,10 +5,13 @@ import logo from "../../Assets/logo.svg";
 import Input from "../../components/input";
 import api from "../../services/api";
 import * as Yup from "yup";
+import { Link, useHistory } from "react-router-dom";
+
 // import { Link, useHistory } from "react-router-dom";
 
 function Register() {
   const formularioReferencia = useRef(null);
+  const history = useHistory();
   const submeterFormulario = async (data) => {
     console.log(data);
 
@@ -31,6 +34,7 @@ function Register() {
         email: data.email,
         senha: data.senha,
       });
+      history.push("/Home");
       console.log(reponse.data);
     } catch (error) {
       if (error instanceof Yup.ValidationError) {
@@ -63,10 +67,10 @@ function Register() {
             Ja possuo uma conta
             <FiUpload />
           </Link> */}
-          <a className="loginButton" href="#">
+          <Link className="loginButton" to="/login">
             {" "}
             Já possuo uma conta
-          </a>
+          </Link>
         </Form>
       </ContentForm>
       <Image></Image>

@@ -1,13 +1,15 @@
 import React, { useRef } from "react";
-import { Container, ContentForm, Image, Page } from "./styles";
+import { Container, ContentForm, Image, Header } from "./styles";
 import logo from "../../Assets/logo.svg";
 import { Form } from "@unform/web";
 import Input from "../../components/input";
 import api from "../../services/api";
-import Home from "../Home-page";
+import left from "../../Assets/left.png";
+import { Link, useHistory } from "react-router-dom";
 
 function RegisterBook() {
   const formularioReferencia = useRef(null);
+  const history = useHistory();
 
   const submeterFormulario = async (data) => {
     const reponse = await api.post("createLivro", {
@@ -19,13 +21,17 @@ function RegisterBook() {
       sinopse: data.sinopse,
     });
     console.log(reponse.data);
+    history.push("/Home");
   };
   return (
-    <Page>
-      <div className="logo">
-        <a href={Home}> voltar</a>
+    <>
+      <Header>
+        <Link to="/Home">
+          {" "}
+          <img className="exitButton" size="20px" src={left} alt="" />{" "}
+        </Link>
         <img src={logo} alt="logo" />
-      </div>
+      </Header>
 
       <Container>
         <ContentForm>
@@ -53,7 +59,7 @@ function RegisterBook() {
         </ContentForm>
         <Image> </Image>
       </Container>
-    </Page>
+    </>
   );
 }
 

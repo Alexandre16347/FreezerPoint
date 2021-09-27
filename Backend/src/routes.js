@@ -9,6 +9,8 @@ const routes = new Router();
 
 routes.get('/busca', UC.get);
 routes.get('/buscaID', UC.getID);
+routes.get('/getLivro', LC.get);
+
 // routes.get('/buscaNome', UC.getNome);
 routes.post('/login', SC.store);
 routes.post('/createUsuario', UC.store);

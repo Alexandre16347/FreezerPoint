@@ -37,6 +37,13 @@ export const ContentForm = styled.div`
       color: rgba(32, 32, 40, 0.8);
       font-size: 1.3rem;
     }
+
+    .erro{
+      color: red;
+      display: flex;
+      justify-content: center;
+      margin-top: 0.5rem;
+    }
     /* input {
       border-radius: 5rem;
       border-style: solid;
