@@ -27,6 +27,7 @@ export const Header = styled.div`
   .menu li a {
     color: rgba(32, 32, 40, 0.8);
     padding: 1rem;
+    cursor: pointer;
   }
 `;
 
@@ -61,7 +62,7 @@ export const Body = styled.div`
     align-items: center;
     justify-content: space-between;
     h2 {
-      color: #202028;
+      color: rgba(32, 32, 40, 0.8);
       font-size: 1.563rem;
       font-family: 900, "Montserrat", sans-serif;
     }
@@ -163,5 +164,35 @@ export const Direction = styled.div`
     border: none;
   }
 `;
-
-export const Footer = styled.div``;
+export const About = styled.div`
+  .conteudo h2 {
+    display: flex;
+    justify-content: center;
+    margin-top: 5rem;
+    margin-bottom: 1rem;
+    font-family: "Montserrat", sans-serif;
+    font-size: 2.25rem;
+    color: rgba(32, 32, 40, 0.8);
+  }
+  .conteudo p {
+    margin: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 400, "Montserrat", sans-serif;
+    margin-bottom: 2rem;
+    font-size: 1.3rem;
+    color: rgba(32, 32, 40, 0.6);
+  }
+`;
+export const Footer = styled.div`
+  background-color: #9ba0fc;
+  padding: 4rem;
+  margin-top: 5rem;
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: rgba(32, 32, 40, 0.8);
+  }
+`;

@@ -6,6 +6,7 @@ import {
   Container,
   ContentBook,
   Direction,
+  About,
 } from "./styles";
 
 import logo from "../../Assets/logoPurple.svg";
@@ -64,7 +65,7 @@ function Home() {
             <Link to="/createLivro"> Cadastrar</Link>
           </li>
           <li>
-            <a href="#"> Sobre</a>
+            <a href="#sobre"> Sobre</a>
           </li>
         </ul>
       </Header>
@@ -76,7 +77,7 @@ function Home() {
               Em nosso site você encontra um livro para todos os gostos. Uma
               grande variedade. Preços acessíveis. Histórias interessantes
             </p>
-            <a href="#">Saiba mais</a>
+            <a href="#sobre">Saiba mais</a>
           </div>
           <div class="ilustracao">
             <img src={home} alt="" />
@@ -135,20 +136,48 @@ function Home() {
           })}{" "}
           {/* =========== FECHAMENTO DO MAP ============ */}
         </ContentBook>
-        <Direction>
-          <div className="container">
-            <button onClick={handleLeftClick} className="right">
-              {" "}
-              <img src={left} alt="" />
-            </button>
-            <button onClick={handleRightClick} className="left">
-              {" "}
-              <img src={right} alt="" />
-            </button>
-          </div>
-        </Direction>
       </Body>
-      <Footer>footer</Footer>
+      <Direction>
+        <div className="container">
+          <button onClick={handleLeftClick} className="right">
+            {" "}
+            <img src={left} alt="" />
+          </button>
+          <button onClick={handleRightClick} className="left">
+            {" "}
+            <img src={right} alt="" />
+          </button>
+        </div>
+      </Direction>
+      <About id="sobre">
+        <div className="conteudo">
+          <h2>Nossa História</h2>
+          <p>
+            Freezer Point, inspirado na “gelateca” da Uespi que oferece um ponto
+            de coleta para livros e revistas que
+            <br /> deseja fazer a doação para a comunidade. O nosso site fornece
+            uma maneira intuitiva e eficiente para o usuário
+            <br /> fazer a compra troca e doação de livros, estabelecendo a
+            conexão entre leitores e os livros.
+          </p>
+        </div>
+      </About>
+
+      <Footer>
+        <div className="container">
+          <img src={logo} alt="logo" />
+          <p className="nome">
+            UESPI, Campus
+            <br />
+            Piripiri
+          </p>
+          <p className="numero">
+            (86) 4002-8922
+            <br />
+            Fale conosco
+          </p>
+        </div>
+      </Footer>
     </>
   );
 }

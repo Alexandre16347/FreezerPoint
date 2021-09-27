@@ -4,6 +4,7 @@ import Login from "../Pages/Login-page";
 import Register from "../Pages/Register-page";
 import Home from "../Pages/Home-page";
 import Book from "../Pages/Register-Book";
+
 // import ControleDeRotas from "./route";
 
 function Routes() {
