@@ -15,6 +15,7 @@ import book from "../../Assets/item1.svg";
 import icon from "../../Assets/icon.svg";
 import left from "../../Assets/left.png";
 import right from "../../Assets/right.png";
+import git from "../../Assets/github.png";
 
 import { Link } from "react-router-dom";
 
@@ -176,6 +177,9 @@ function Home() {
             <br />
             Fale conosco
           </p>
+          <a href="https://github.com/Alexandre16347/FreezerPoint">
+            <img src={git} alt="" />
+          </a>
         </div>
       </Footer>
     </>

@@ -195,4 +195,14 @@ export const Footer = styled.div`
     justify-content: space-between;
     color: rgba(32, 32, 40, 0.8);
   }
+  .container a {
+    color: rgba(32, 32, 40, 0.8);
+  }
+
+  .container a img {
+    max-width: 50px;
+    max-height: 50px;
+    width: auto;
+    height: auto;
+  }
 `;
