@@ -16,6 +16,7 @@ import icon from "../../Assets/icon.svg";
 import left from "../../Assets/left.png";
 import right from "../../Assets/right.png";
 import git from "../../Assets/github.png";
+import api from "../../services/api";
 
 import { Link } from "react-router-dom";
 
@@ -23,10 +24,11 @@ function Home() {
   const [data, setData] = useState([]);
   const referencia = useRef(null);
 
-  useEffect(() => {
-    fetch("http://localhost:3000/static/book.json")
-      .then((response) => response.json())
-      .then(setData);
+  useEffect(async () => {
+    console.log("teste");
+    const response = await api.get("/getLivro");
+    console.log(response.data);
+    setData(response.data);
   }, []);
 
   const handleLeftClick = (e) => {
@@ -42,7 +44,7 @@ function Home() {
   };
 
   //teste
-  if (!data || !data.length)
+  if (!data)
     return (
       <div>
         <h2>Sem livros por enquanto</h2>
