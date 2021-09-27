@@ -1,7 +1,7 @@
 [
   {
     "id": "94313731",
-    "name": "Tênis Nike Revolution 5 Max" ,
+    "name": "Tênis Nike Revolution 5 Max",
     "price": 249.99,
     "oldPrice": 349.99,
     "image": "https://imgcentauro-a.akamaihd.net/230x230/94313731.jpg"
@@ -13,8 +13,8 @@
     "oldPrice": 349.99,
     "image": "https://imgcentauro-a.akamaihd.net/230x230/94313762.jpg"
   },
-  
-  { 
+
+  {
     "id": "943137XQ",
     "name": "Tênis Nike Revolution 5",
     "price": 249.99,
@@ -105,7 +105,7 @@
     "oldPrice": 179.99,
     "image": "https://imgcentauro-a.akamaihd.net/230x230/93828502.jpg"
   },
-  
+
   {
     "id": "95150929",
     "name": "Tênis Asics Patriot 12",
@@ -141,7 +141,7 @@
     "oldPrice": 379.99,
     "image": "https://imgcentauro-a.akamaihd.net/230x230/95876431.jpg"
   },
- 
+
   {
     "id": "95707845",
     "name": "Tênis Mizuno Wave Prophecy X",
@@ -240,7 +240,7 @@
     "oldPrice": 349.99,
     "image": "https://imgcentauro-a.akamaihd.net/230x230/94313703.jpg"
   },
-  
+
   {
     "id": "93761902",
     "name": "Tênis Oakley Modoc 2.0",

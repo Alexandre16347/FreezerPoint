@@ -1,19 +1,43 @@
-import React, { useEffect, useState } from "react";
-import { Header, Body, Footer, Container } from "./styles";
+import React, { useEffect, useState, useRef } from "react";
+import {
+  Header,
+  Body,
+  Footer,
+  Container,
+  ContentBook,
+  Direction,
+} from "./styles";
+
 import logo from "../../Assets/logoPurple.svg";
 import home from "../../Assets/homeImage.svg";
 import book from "../../Assets/item1.svg";
 import icon from "../../Assets/icon.svg";
+import left from "../../Assets/left.png";
+import right from "../../Assets/right.png";
+
 import { Link } from "react-router-dom";
 
-async function Home() {
+function Home() {
   const [data, setData] = useState([]);
+  const referencia = useRef(null);
 
   useEffect(() => {
-    fetch("http://localhost:3001/getLivro")
+    fetch("http://localhost:3000/static/book.json")
       .then((response) => response.json())
       .then(setData);
   }, []);
+
+  const handleLeftClick = (e) => {
+    e.preventDefault();
+    console.log(referencia.current.offsetWidth);
+    referencia.current.scrollLeft -= referencia.current.offsetWidth;
+  };
+
+  const handleRightClick = (e) => {
+    e.preventDefault();
+    console.log(referencia.current.offsetWidth);
+    referencia.current.scrollLeft += referencia.current.offsetWidth;
+  };
 
   //teste
   if (!data || !data.length)
@@ -89,30 +113,40 @@ async function Home() {
           </ul>
         </div>
 
-        <div className="container">
-          <div className="carossel">
-            {data.map((item) => {
-              const { nome, autor, edicao, sinopse, genero, categoria } = item;
-              return (
-                <div className="item">
-                  <div className="conteudoItem">
-                    <img src={book} className="imageItem" />
-                    <div className="info">
-                      <p className="preco"> R$ 10,00</p>
-                      <p className="titulo"> {nome}</p>
-                      <p className="autor"> {autor}</p>
-                      <div className="botao">
-                        <a href="#"> Comprar</a>
-                        <img clasname="icon" src={icon} alt="icone fav" />
-                      </div>
+        <ContentBook ref={referencia}>
+          {data.map((item) => {
+            const { autor, nome, categoria, genero, sinopse } = item;
+            return (
+              <div className="item">
+                <div className="conteudoItem">
+                  <img src={book} className="imageItem" />
+                  <div className="info">
+                    {/* <p className="preco"> R$ 10.00</p> */}
+                    <p className="titulo"> {nome}</p>
+                    <p className="autor"> {autor}</p>
+                    <div className="botao">
+                      <a href="#"> Adicionar</a>
+                      <img clasname="icon" src={icon} alt="icone fav" />
                     </div>
                   </div>
                 </div>
-              );
-            })}{" "}
-            {/* =========== FECHAMENTO DO MAP ============ */}
+              </div>
+            );
+          })}{" "}
+          {/* =========== FECHAMENTO DO MAP ============ */}
+        </ContentBook>
+        <Direction>
+          <div className="container">
+            <button onClick={handleLeftClick} className="right">
+              {" "}
+              <img src={left} alt="" />
+            </button>
+            <button onClick={handleRightClick} className="left">
+              {" "}
+              <img src={right} alt="" />
+            </button>
           </div>
-        </div>
+        </Direction>
       </Body>
       <Footer>footer</Footer>
     </>
