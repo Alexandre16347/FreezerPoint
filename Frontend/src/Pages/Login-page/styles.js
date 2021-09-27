@@ -80,7 +80,7 @@ export const ContentForm = styled.div`
       margin: 16px 0 20px;
     }
     .separator span {
-      background: #fffaf5;
+      background: #DFDDDA;
       padding: 0 10px;
     }
 

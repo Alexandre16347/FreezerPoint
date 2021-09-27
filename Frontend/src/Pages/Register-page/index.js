@@ -5,7 +5,7 @@ import logo from "../../Assets/logo.svg";
 import Input from "../../components/input";
 import api from "../../services/api";
 import * as Yup from "yup";
-import { Link, useHistory } from "react-router-dom";
+// import { Link, useHistory } from "react-router-dom";
 
 function Register() {
   const formularioReferencia = useRef(null);
@@ -59,14 +59,14 @@ function Register() {
           <h2>Senha</h2>
           <Input name="senha" type="password" placeholder="Senha" />
           <button type="submit"> Cadastre-se </button>
-          <Link to="/login">
+          {/* <Link to="/login">
             Ja possuo uma conta
             <FiUpload />
-          </Link>
-          {/* <a className="loginButton" href="#">
+          </Link> */}
+          <a className="loginButton" href="#">
             {" "}
             Já possuo uma conta
-          </a> */}
+          </a>
         </Form>
       </ContentForm>
       <Image></Image>

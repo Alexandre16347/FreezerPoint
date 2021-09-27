@@ -19,7 +19,7 @@ const Input = ({ name, ...rest }) => {
       <Container temErro={!!error}>
         <input {...rest} ref={referenciaInput}></input>
       </Container>
-      <Erro>{error}</Erro>
+      {!!error && <Erro>{error}</Erro>}
     </>
   );
 };

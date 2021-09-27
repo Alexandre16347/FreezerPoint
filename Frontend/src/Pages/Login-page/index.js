@@ -1,14 +1,49 @@
 import React, { useRef } from "react";
 import { Container, ContentForm, Image, Logo } from "./styles";
-import logo from "../../Assets/logo.svg";
 import { Form } from "@unform/web";
+import logo from "../../Assets/logo.svg";
 import Input from "../../components/input";
-import App from "../../App";
+import * as Yup from "yup";
+import { useContextAutenticacao } from "../../context/autenticacao";
+// import { Link, useHistory } from "react-router-dom";
 
-function Login() {
+function Register() {
   const formularioReferencia = useRef(null);
-  const submeterFormulario = (data) => {
+  const { login } = useContextAutenticacao();
+
+  const submeterFormulario = async (data) => {
     console.log(data);
+
+    //Valida dos campos do formulário
+    try {
+      const esquema = Yup.object().shape({
+        email: Yup.string()
+          .email("Email inválido")
+          .required("Você precisa digitar um email"),
+        senha: Yup.string()
+          .min(6, "A senha precisa ter no mínimo 6 caracteres")
+          .required("Você precisa digitar uma senha"),
+      });
+      await esquema.validate(data, { abortEarly: false });
+      login(data);
+
+      //Faz a requisição da api e grava no banco de dados
+      //ATENÇÃO
+      // const reponse = await api.post("login", {
+      //   email: data.email,
+      //   senha: data.senha,
+      // });
+      // console.log(reponse.data);
+    } catch (error) {
+      if (error instanceof Yup.ValidationError) {
+        const erros = {};
+        error.inner.forEach((e) => {
+          erros[e.path] = e.message;
+        });
+        console.log(erros);
+        formularioReferencia.current?.setErrors(erros);
+      }
+    }
   };
   return (
     <Container>
@@ -18,22 +53,20 @@ function Login() {
       <ContentForm>
         <h1 className="title">Bem vindo de volta!</h1>
         <Form ref={formularioReferencia} onSubmit={submeterFormulario}>
-          <p>Não tem uma conta? Cadastre-se</p>
-          <h2>Login</h2>
-          <Input
-            name="emailUsuario"
-            type="text"
-            placeholder="exemplo@gmail.com"
-          />
+          <p>Preencha seus dados para realizar seu login</p>
+
+          <h2>Email</h2>
+          <Input name="email" type="text" placeholder="exemplo@gmail.com" />
           <h2>Senha</h2>
-          <Input name="senhaUsuario" type="password" placeholder="Senha" />
-          <a href="#">Esqueceu a senha?</a>
-          <button type="submit"> Login</button>
-          <p className="separator">
-            <span>Crie uma conta</span>
-          </p>
-          <a className="sign-button" href={App}>
-            Cadastre-se
+          <Input name="senha" type="password" placeholder="Senha" />
+          <button type="submit"> Login </button>
+          {/* <Link to="/login">
+            Ja possuo uma conta
+            <FiUpload />
+          </Link> */}
+          <a className="loginButton" href="#">
+            {" "}
+            não possui uma conta? cadastre-se
           </a>
         </Form>
       </ContentForm>
@@ -42,4 +75,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default Register;
