@@ -70,6 +70,12 @@ function Home() {
           <li>
             <a href="#sobre"> Sobre</a>
           </li>
+          <li>
+            <Link to="/perfil">
+              {" "}
+              <a> Perfil</a>
+            </Link>
+          </li>
         </ul>
       </Header>
       <Body>

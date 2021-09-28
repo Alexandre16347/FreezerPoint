@@ -38,7 +38,7 @@ export const ContentForm = styled.div`
       font-size: 1.3rem;
     }
 
-    .erro{
+    .erro {
       color: red;
       display: flex;
       justify-content: center;
@@ -54,57 +54,56 @@ export const ContentForm = styled.div`
         color: #c8d3f9;
         size: 1.5rem;
       } */
-    }
-    a {
-      font-family: "Nunito", sans-serif;
-      font-size: 0.9rem;
-      color: #444b59;
-      text-align: center;
-      margin-bottom: 1rem;
-    }
-    button {
-      font-family: "Nunito", sans-serif;
-      border-radius: 5rem;
-      border-color: #9ba0fc;
-      border: none;
-      outline: none;
-      background: #9ba0fc;
-      color: white;
-      padding: 0.5rem;
-      box-shadow: 0px 4px 3px rgba(0, 0, 0, 0.25);
-      transition: background 0.2s;
-    }
+  }
+  a {
+    font-family: "Nunito", sans-serif;
+    font-size: 0.9rem;
+    color: #444b59;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  button {
+    font-family: "Nunito", sans-serif;
+    border-radius: 5rem;
+    border-color: #9ba0fc;
+    border: none;
+    outline: none;
+    background: #9ba0fc;
+    color: white;
+    padding: 0.5rem;
+    box-shadow: 0px 4px 3px rgba(0, 0, 0, 0.25);
+    transition: background 0.2s;
+  }
 
-    button:hover {
-      background: ${shade(0.1, "#9ba0fc")};
-    }
+  button:hover {
+    background: ${shade(0.1, "#9ba0fc")};
+  }
 
-    .separator {
-      width: 100%;
-      text-align: center;
-      border-bottom: 1px solid #444b59;
-      line-height: 0.1rem;
-      margin: 16px 0 20px;
-    }
-    .separator span {
-      background: #DFDDDA;
-      padding: 0 10px;
-    }
+  .separator {
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid #444b59;
+    line-height: 0.1rem;
+    margin: 16px 0 20px;
+  }
+  .separator span {
+    background: #dfddda;
+    padding: 0 10px;
+  }
 
-    .sign-button {
-      font-family: "Nunito", sans-serif;
-      border-radius: 5rem;
-      border-color: #9ba0fc;
-      outline: none;
-      box-shadow: 0px 4px 3px rgba(0, 0, 0, 0.25);
-      background: #9ba0fc;
-      color: white;
-      padding: 0.6rem;
-      transition: background 0.2s;
-    }
-    .sign-button:hover {
-      background: ${shade(0.1, "#9ba0fc")};
-    }
+  .sign-button {
+    font-family: "Nunito", sans-serif;
+    border-radius: 5rem;
+    border-color: #9ba0fc;
+    outline: none;
+    box-shadow: 0px 4px 3px rgba(0, 0, 0, 0.25);
+    background: #9ba0fc;
+    color: white;
+    padding: 0.6rem;
+    transition: background 0.2s;
+  }
+  .sign-button:hover {
+    background: ${shade(0.1, "#9ba0fc")};
   }
 `;
 

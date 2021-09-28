@@ -4,6 +4,7 @@ import Login from "../Pages/Login-page";
 import Register from "../Pages/Register-page";
 import Home from "../Pages/Home-page";
 import Book from "../Pages/Register-Book";
+import Profile from "../Pages/Profile-User";
 import ControleRotas from "./route";
 
 // import ControleDeRotas from "./route";
@@ -24,6 +25,11 @@ function Routes() {
         path="/createLivro"
         isPrivate={true}
         component={Book}
+      ></ControleRotas>
+      <ControleRotas
+        path="/perfil"
+        isPrivate={true}
+        component={Profile}
       ></ControleRotas>
     </Switch>
   );
