@@ -58,6 +58,7 @@ export const ContentForm = styled.div`
       transition: background 0.2s;
       margin-top: 1.5rem;
       margin-bottom: 2rem;
+    
     }
 
     button:hover {

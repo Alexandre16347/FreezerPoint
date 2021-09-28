@@ -85,7 +85,7 @@ export const ContentForm = styled.div`
     margin-top: 2rem;
   }
 
-  button {
+  #teste {
     font-family: "Nunito", sans-serif;
     border-radius: 5rem;
     border-color: #9ba0fc;
@@ -98,6 +98,9 @@ export const ContentForm = styled.div`
     padding-right: 40%;
     box-shadow: 0px 4px 3px rgba(0, 0, 0, 0.25);
     transition: background 0.2s;
+    .texto {
+      margin-left: 11rem;
+    }
   }
 
   button:hover {

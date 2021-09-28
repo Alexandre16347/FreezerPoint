@@ -1,21 +1,14 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Container, ContentForm, Image, Logo } from "./styles";
 import logo from "../../Assets/logo.svg";
-import editor from "../../Assets/editor.svg";
-import left from "../../Assets/left.png";
 import api from "../../services/api";
 import { Form } from "@unform/web";
 import * as Yup from "yup";
 import Input from "../../components/input";
-import { useContextAutenticacao } from "../../context/autenticacao";
-
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function Update() {
-  const [loginErro, setLoginErro] = useState(" ");
   const formularioReferencia = useRef(null);
-  const { login } = useContextAutenticacao();
-  const history = useHistory();
 
   const submeterFormulario = async (data) => {
     //Valida dos campos do formulário
@@ -59,7 +52,7 @@ function Update() {
 
       <ContentForm>
         <Form ref={formularioReferencia} onSubmit={submeterFormulario}>
-          <h1 className="title">Perfil</h1>
+          <h1 className="title">Editar</h1>
           <h2>Nome antigo</h2>
           <p className="nome" href="">
             {data.nome}
@@ -67,9 +60,9 @@ function Update() {
           <h2>Novo nome</h2>
           <Input name="novoNome" type="text" placeholder="Digite seu nome" />
           <div className="contentButton">
-            <button to="" type="submit" className="botao">
+            <button type="submit" className="botao" id="teste">
               {" "}
-              Aplicar Mudanças
+              <p className="texto">Aplicar</p>
             </button>
           </div>
         </Form>

@@ -9,6 +9,7 @@ import {
   About,
 } from "./styles";
 
+import exit from "../../Assets/exit.svg";
 import logo from "../../Assets/logoPurple.svg";
 import home from "../../Assets/homeImage.svg";
 import book from "../../Assets/item1.svg";
@@ -17,9 +18,12 @@ import left from "../../Assets/left.png";
 import right from "../../Assets/right.png";
 import git from "../../Assets/github.png";
 import api from "../../services/api";
+import { useContextAutenticacao } from "../../context/autenticacao";
+
 import { Link } from "react-router-dom";
 
 function Home() {
+  const { logoff } = useContextAutenticacao();
   const [data, setData] = useState([]);
   const referencia = useRef(null);
 
@@ -73,6 +77,13 @@ function Home() {
             <Link to="/perfil">
               {" "}
               <a> Perfil</a>
+            </Link>
+          </li>
+          <li>
+            <Link to="/login">
+              <a onClick={logoff}>
+                <img src={exit} alt="exit" />
+              </a>
             </Link>
           </li>
         </ul>
