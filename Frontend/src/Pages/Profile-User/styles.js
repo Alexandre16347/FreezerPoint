@@ -54,7 +54,8 @@ export const ContentForm = styled.div`
   }
 
   .containerName .icon {
-    margin-left: 0.5rem;
+    margin-left: -2.5rem;
+    margin-top: 0.4rem;
   }
 
   .containerEmail {
@@ -62,7 +63,8 @@ export const ContentForm = styled.div`
   }
 
   .containerEmail .icon {
-    margin-left: 0.5rem;
+    margin-left: -2.5rem;
+    margin-top: 0.4rem;
   }
   .email {
     font-family: "Nunito", sans-serif;
@@ -103,7 +105,8 @@ export const ContentForm = styled.div`
   }
 
   .containerSenha .icon {
-    margin-left: 0.5rem;
+    margin-left: -2.5rem;
+    margin-top: 0.4rem;
   }
   .container .info {
     display: flex;
