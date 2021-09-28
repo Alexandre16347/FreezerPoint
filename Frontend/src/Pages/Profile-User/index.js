@@ -32,9 +32,9 @@ function Profile() {
               {data.nome}
             </p>
             <div className="icon">
-              <a href="">
+              <Link to="/update">
                 <img src={editor} alt="" />
-              </a>
+              </Link>
             </div>
           </div>
           <h2>Email</h2>

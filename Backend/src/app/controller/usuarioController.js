@@ -42,6 +42,8 @@ class UsuarioController {
       return res.status(404).json({ erro: 'Usuário não existe' });
     }
 
+    const { id, nome, email } = usuario.update({ nome: novoNome });
+
     res.json({ id, nome, email });
   }
 

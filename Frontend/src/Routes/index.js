@@ -6,6 +6,7 @@ import Home from "../Pages/Home-page";
 import Book from "../Pages/Register-Book";
 import Profile from "../Pages/Profile-User";
 import ControleRotas from "./route";
+import Update from "../Pages/Update-nome";
 
 // import ControleDeRotas from "./route";
 
@@ -30,6 +31,12 @@ function Routes() {
         path="/perfil"
         isPrivate={true}
         component={Profile}
+      ></ControleRotas>
+      <ControleRotas
+        path="/update"
+        isPrivate={true}
+        exact
+        component={Update}
       ></ControleRotas>
     </Switch>
   );
