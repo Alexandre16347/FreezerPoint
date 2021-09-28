@@ -1,20 +1,30 @@
 import React from "react";
-import { Switch, Route } from "react-router-dom";
+import { Switch } from "react-router-dom";
 import Login from "../Pages/Login-page";
 import Register from "../Pages/Register-page";
 import Home from "../Pages/Home-page";
 import Book from "../Pages/Register-Book";
+import ControleRotas from "./route";
 
 // import ControleDeRotas from "./route";
 
 function Routes() {
   return (
     <Switch>
-      <Route path="/" exact component={Login}></Route>
-      <Route path="/login" exact component={Login}></Route>
-      <Route path="/createUsuario" component={Register}></Route>
-      <Route path="/Home" exact component={Home}></Route>
-      <Route path="/createLivro" component={Book}></Route>
+      <ControleRotas path="/" exact component={Login}></ControleRotas>
+      <ControleRotas path="/login" exact component={Login}></ControleRotas>
+      <ControleRotas path="/createUsuario" component={Register}></ControleRotas>
+      <ControleRotas
+        path="/Home"
+        isPrivate={true}
+        exact
+        component={Home}
+      ></ControleRotas>
+      <ControleRotas
+        path="/createLivro"
+        isPrivate={true}
+        component={Book}
+      ></ControleRotas>
     </Switch>
   );
 }
