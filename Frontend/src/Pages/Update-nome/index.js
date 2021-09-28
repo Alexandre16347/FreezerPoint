@@ -18,7 +18,29 @@ function Update() {
   const history = useHistory();
 
   const submeterFormulario = async (data) => {
-    console.log(data);
+    //Valida dos campos do formulário
+    try {
+      const esquema = Yup.object().shape({
+        novoNome: Yup.string().required("Você precisa digitar um nome"),
+      });
+      await esquema.validate(data, { abortEarly: false });
+
+      //Faz a requisição da api e grava no banco de dados
+      const response = await api.put("/update", {
+        novoNome: data.novoNome,
+      });
+      //Atuliza a pagina
+      window.location.reload();
+    } catch (error) {
+      if (error instanceof Yup.ValidationError) {
+        const erros = {};
+        error.inner.forEach((e) => {
+          erros[e.path] = e.message;
+        });
+        console.log(erros);
+        formularioReferencia.current?.setErrors(erros);
+      }
+    }
   };
 
   //pegando os dados do backend
@@ -43,9 +65,9 @@ function Update() {
             {data.nome}
           </p>
           <h2>Novo nome</h2>
-          <Input name="nome" type="text" placeholder="Digite seu nome" />
+          <Input name="novoNome" type="text" placeholder="Digite seu nome" />
           <div className="contentButton">
-            <button type="submit" className="botao">
+            <button to="" type="submit" className="botao">
               {" "}
               Aplicar Mudanças
             </button>
