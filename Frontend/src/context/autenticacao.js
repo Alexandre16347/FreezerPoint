@@ -15,6 +15,7 @@ export const AutenticacaoProvider = ({ children }) => {
 
       localStorage.setItem("@freezerPoint:token", token);
       localStorage.setItem("@freezerPoint:usuario", JSON.stringify(usuario));
+      api.defaults.headers.authorization = `Bearer ${token}`;
     } catch (err) {
       console.log(err.response.data);
     }

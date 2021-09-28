@@ -7,7 +7,7 @@ const routes = new Router();
 
 // routes.get('/', (req, res) => res.json({ mensage: 'Raiz funcionando' }));
 routes.get('/busca', UC.get);
-routes.get('/buscaID', UC.getID);
+routes.get('/buscaID', autenticacao, UC.getID);
 routes.get('/getLivro', LC.get);
 routes.get('/getUmLivro', LC.getId);
 
@@ -15,7 +15,7 @@ routes.get('/getUmLivro', LC.getId);
 routes.post('/login', SC.store);
 routes.post('/createUsuario', UC.store);
 routes.post('/createAdmin', UC.store);
-routes.post('/createLivro', LC.store);
+routes.post('/createLivro', autenticacao, LC.store);
 // routes.use(autenticacao);
 
 routes.put('/update', autenticacao, UC.update);

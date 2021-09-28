@@ -17,7 +17,6 @@ import left from "../../Assets/left.png";
 import right from "../../Assets/right.png";
 import git from "../../Assets/github.png";
 import api from "../../services/api";
-
 import { Link } from "react-router-dom";
 
 function Home() {
@@ -162,10 +161,10 @@ function Home() {
         <div className="conteudo">
           <h2>Nossa História</h2>
           <p>
-            FreezerPoint foi inspirado na “gelateca” da Uespi que oferece um
-            ponto de coleta de livros e revistas que as pessoas
-            <br /> desejam fazer a doação para a comunidade. O nosso site
-            fornece uma maneira intuitiva e eficiente para o usuário
+            Freezer Point, inspirado na “gelateca” da Uespi que oferece um ponto
+            de coleta para livros e revistas que
+            <br /> deseja fazer a doação para a comunidade. O nosso site fornece
+            uma maneira intuitiva e eficiente para o usuário
             <br /> fazer a compra troca e doação de livros, estabelecendo a
             conexão entre leitores e os livros.
           </p>

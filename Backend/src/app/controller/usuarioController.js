@@ -17,14 +17,13 @@ class UsuarioController {
   }
 
   async get(req, res, next) {
-    Usuario.findAll().then((company) => {
-      res.json(company);
-    });
+    const usuarios = await Usuario.findAll();
+    res.json(usuarios);
   }
 
   async getID(req, res) {
-    const { id } = req.body;
-    const usuario = await Usuario.findByPk(id);
+    // const { id } = req.body;
+    const usuario = await Usuario.findByPk(req.id);
     if (usuario === null) {
       res.json('Not found!');
     } else {
