@@ -7,6 +7,7 @@ import Book from "../Pages/Register-Book";
 import Profile from "../Pages/Profile-User";
 import ControleRotas from "./route";
 import Update from "../Pages/Update-nome";
+import UE from "../Pages/Update-Email";
 
 // import ControleDeRotas from "./route";
 
@@ -37,6 +38,12 @@ function Routes() {
         isPrivate={true}
         exact
         component={Update}
+      ></ControleRotas>
+      <ControleRotas
+        path="/updateEmail"
+        isPrivate={true}
+        exact
+        component={UE}
       ></ControleRotas>
     </Switch>
   );
