@@ -5,22 +5,23 @@ import api from "../../services/api";
 import { Form } from "@unform/web";
 import * as Yup from "yup";
 import Input from "../../components/input";
-import { Link } from "react-router-dom";
 
-function Update() {
+function UpdateEmail() {
   const formularioReferencia = useRef(null);
 
   const submeterFormulario = async (data) => {
     //Valida dos campos do formulário
     try {
       const esquema = Yup.object().shape({
-        novoNome: Yup.string().required("Você precisa digitar um nome"),
+        novoEmail: Yup.string()
+          .email("Email inválido")
+          .required("Você precisa digitar um email"),
       });
       await esquema.validate(data, { abortEarly: false });
 
       //Faz a requisição da api e grava no banco de dados
-      const response = await api.put("/update", {
-        novoNome: data.novoNome,
+      const response = await api.put("/updateEmail", {
+        novoEmail: data.novoEmail,
       });
       //Atuliza a pagina
       window.location.reload();
@@ -53,12 +54,12 @@ function Update() {
       <ContentForm>
         <Form ref={formularioReferencia} onSubmit={submeterFormulario}>
           <h1 className="title">Editar</h1>
-          <h2>Nome antigo</h2>
-          <p className="nome" href="">
-            {data.nome}
+          <h2>Email antigo</h2>
+          <p className="email" href="">
+            {data.email}
           </p>
-          <h2>Novo nome</h2>
-          <Input name="novoNome" type="text" placeholder="Digite seu nome" />
+          <h2 className="tituloEmail">Novo Email</h2>
+          <Input name="novoEmail" type="email" placeholder="Digite seu nome" />
           <div className="contentButton">
             <button type="submit" className="botao" id="teste">
               {" "}
@@ -72,4 +73,4 @@ function Update() {
   );
 }
 
-export default Update;
+export default UpdateEmail;

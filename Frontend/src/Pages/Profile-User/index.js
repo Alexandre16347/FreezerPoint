@@ -44,7 +44,9 @@ function Profile() {
             </p>
             <div className="icon">
               <a href="">
-                <img src={editor} alt="" />
+                <Link to="/updateEmail">
+                  <img src={editor} alt="" />
+                </Link>
               </a>
             </div>
           </div>

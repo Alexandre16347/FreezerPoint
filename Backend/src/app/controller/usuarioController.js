@@ -47,6 +47,20 @@ class UsuarioController {
     res.json({ id, nome, email });
   }
 
+  async updateEmail(req, res) {
+    const { novoEmail } = req.body;
+
+    const usuario = await Usuario.findByPk(req.id);
+
+    if (!usuario) {
+      return res.status(404).json({ erro: 'Usuário não existe' });
+    }
+
+    const { id, nome, email } = usuario.update({ email: novoEmail });
+
+    res.json({ id, nome, email });
+  }
+
   //verificar o bug de não conseguir acessar depois de trocar a senha
   async updateSenha(req, res) {
     const { senhaVelha, senhaNova } = req.body;

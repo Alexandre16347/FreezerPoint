@@ -34,6 +34,9 @@ export const ContentForm = styled.div`
     font-size: 1.3rem;
     margin-bottom: 0.5rem;
   }
+  .tituloEmail {
+    margin-top: 1rem;
+  }
 
   .nome {
     font-family: "Nunito", sans-serif;
