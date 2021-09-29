@@ -3,8 +3,8 @@ import image from "../../Assets/image.svg";
 import { shade } from "polished";
 
 export const Logo = styled.div`
-  img {
-    position: absolute;
+  .container {
+    display: flex;
   }
 `;
 

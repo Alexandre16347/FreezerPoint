@@ -5,25 +5,30 @@ import api from "../../services/api";
 import { Form } from "@unform/web";
 import * as Yup from "yup";
 import Input from "../../components/input";
-import left from "../../Assets/left.png";
 import { Link } from "react-router-dom";
+import left from "../../Assets/left.png";
 
-function UpdateEmail() {
+function UpdateSenha() {
   const formularioReferencia = useRef(null);
 
   const submeterFormulario = async (data) => {
     //Valida dos campos do formulário
     try {
       const esquema = Yup.object().shape({
-        novoEmail: Yup.string()
-          .email("Email inválido")
-          .required("Você precisa digitar um email"),
+        senhaNova: Yup.string()
+          .min(6, "A senha precisa ter no mínimo 6 caracteres")
+          .required("Você precisa digitar uma senha"),
+        senhaVelha: Yup.string()
+          .min(6, "A senha sprecisa ter no mínimo 6 caracteres")
+          .required("Você precisa digitar uma senha"),
       });
       await esquema.validate(data, { abortEarly: false });
 
       //Faz a requisição da api e grava no banco de dados
-      const response = await api.put("/updateEmail", {
-        novoEmail: data.novoEmail,
+      const response = await api.put("/updateSenha", {
+        senhaNova: data.senhaVelha,
+
+        senhaNova: data.senhaNova,
       });
       //Atuliza a pagina
       window.location.reload();
@@ -52,7 +57,6 @@ function UpdateEmail() {
       <Logo>
         <div className="container">
           <Link to="/perfil">
-            {" "}
             <img className="exitButton" size="20px" src={left} alt="" />{" "}
           </Link>
           <img src={logo} alt="icon" />
@@ -62,15 +66,19 @@ function UpdateEmail() {
         <ContentForm>
           <Form ref={formularioReferencia} onSubmit={submeterFormulario}>
             <h1 className="title">Editar</h1>
-            <h2>Email antigo</h2>
-            <p className="email" href="">
-              {data.email}
-            </p>
-            <h2 className="tituloEmail">Novo Email</h2>
+
+            <h2 className="tituloEmail">Senha antiga</h2>
             <Input
-              name="novoEmail"
-              type="email"
-              placeholder="Digite seu nome"
+              name="senhaVelha"
+              type="password"
+              placeholder="Digite sua senha"
+            />
+
+            <h2 className="tituloEmail">Nova senha</h2>
+            <Input
+              name="senhaNova"
+              type="password"
+              placeholder="Digite sua senha"
             />
             <div className="contentButton">
               <button type="submit" className="botao" id="teste">
@@ -86,4 +94,4 @@ function UpdateEmail() {
   );
 }
 
-export default UpdateEmail;
+export default UpdateSenha;

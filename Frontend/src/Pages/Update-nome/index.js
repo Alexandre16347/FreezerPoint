@@ -6,6 +6,7 @@ import { Form } from "@unform/web";
 import * as Yup from "yup";
 import Input from "../../components/input";
 import { Link } from "react-router-dom";
+import left from "../../Assets/left.png";
 
 function Update() {
   const formularioReferencia = useRef(null);
@@ -45,30 +46,37 @@ function Update() {
   }, []);
 
   return (
-    <Container>
+    <>
       <Logo>
-        <img src={logo} alt="icon" />
+        <div className="container">
+          <Link to="/perfil">
+            {" "}
+            <img className="exitButton" size="20px" src={left} alt="" />{" "}
+          </Link>
+          <img src={logo} alt="icon" />
+        </div>
       </Logo>
-
-      <ContentForm>
-        <Form ref={formularioReferencia} onSubmit={submeterFormulario}>
-          <h1 className="title">Editar</h1>
-          <h2>Nome antigo</h2>
-          <p className="nome" href="">
-            {data.nome}
-          </p>
-          <h2>Novo nome</h2>
-          <Input name="novoNome" type="text" placeholder="Digite seu nome" />
-          <div className="contentButton">
-            <button type="submit" className="botao" id="teste">
-              {" "}
-              <p className="texto">Aplicar</p>
-            </button>
-          </div>
-        </Form>
-      </ContentForm>
-      <Image></Image>
-    </Container>
+      <Container>
+        <ContentForm>
+          <Form ref={formularioReferencia} onSubmit={submeterFormulario}>
+            <h1 className="title">Editar</h1>
+            <h2>Nome antigo</h2>
+            <p className="nome" href="">
+              {data.nome}
+            </p>
+            <h2>Novo nome</h2>
+            <Input name="novoNome" type="text" placeholder="Digite seu nome" />
+            <div className="contentButton">
+              <button type="submit" className="botao" id="teste">
+                {" "}
+                <p className="texto">Aplicar</p>
+              </button>
+            </div>
+          </Form>
+        </ContentForm>
+        <Image></Image>
+      </Container>
+    </>
   );
 }
 

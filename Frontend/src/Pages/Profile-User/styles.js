@@ -2,8 +2,8 @@ import styled from "styled-components";
 import image from "../../Assets/image.svg";
 
 export const Logo = styled.div`
-  img {
-    position: absolute;
+  .container {
+    display: flex;
   }
 `;
 

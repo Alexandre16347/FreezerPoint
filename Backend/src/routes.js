@@ -19,6 +19,7 @@ routes.post('/createLivro', autenticacao, LC.store);
 // routes.use(autenticacao);
 
 routes.put('/update', autenticacao, UC.update);
+routes.put('/updateEmail', autenticacao, UC.updateEmail);
 routes.put('/updateSenha', autenticacao, UC.updateSenha);
 routes.put('/updateNomeLivro', autenticacao, LC.update);
 routes.put('/updateAutor', autenticacao, LC.updateAutor);

@@ -8,6 +8,7 @@ import Profile from "../Pages/Profile-User";
 import ControleRotas from "./route";
 import Update from "../Pages/Update-nome";
 import UE from "../Pages/Update-Email";
+import US from "../Pages/Update-senha";
 
 // import ControleDeRotas from "./route";
 
@@ -44,6 +45,12 @@ function Routes() {
         isPrivate={true}
         exact
         component={UE}
+      ></ControleRotas>
+      <ControleRotas
+        path="/updateSenha"
+        isPrivate={true}
+        exact
+        component={US}
       ></ControleRotas>
     </Switch>
   );
